@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart', 'table']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawCombo);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawCombo() {
+
+        // Create the data table.
+		var data = google.visualization.arrayToDataTable([
+		    ['Name', 'Height', 'Smokes'],
+		    ['Tong Ning mu', 174, true],
+		    ['Huang Ang fa', 523, false],
+		    ['Teng nu', 86, true]
+		  ]);
+		  
+        // Set chart options
+        // var options = {'title':'How Much Pizza I Ate Last Night',
+        //                        'width':400,
+        //                        'height':300};
+	   var options = {
+	     'legend':'left',
+	     'title':'My Big Pie Chart',
+	     'is3D':true,
+	     'width':400,
+	     'height':300
+	   }
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+        function selectHandler() {
+          var selectedItem = chart.getSelection()[0];
+          if (selectedItem) {
+            var topping = data.getValue(selectedItem.row, 0);
+            alert('The user selected ' + topping);
+          }
+        }
+       google.visualization.events.addListener(chart, 'select', selectHandler);    
+	   chart.draw(data, options);
+	   
+		var tableData = google.visualization.arrayToDataTable([
+		    ['Key', 'OfferId', 'Offer Category', 'Offer Title'],
+		    ['Tong Ning mu', 174, 'bye', 'ak'],
+		    ['Huang Ang fa', 523, 'hello', 'by'],
+		    ['Teng nu', 86, 'dd', 'ak']
+		  ]);
+		
+  	  	var dataTable = new google.visualization.Table(document.getElementById('table_div'));
+  	  	dataTable.draw(tableData, null);
+	  	
+      }
+	  
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+	<div id="table_div"></div>
+  </body>
+</html>
