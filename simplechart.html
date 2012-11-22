@@ -31,13 +31,13 @@
         // var options = {'title':'How Much Pizza I Ate Last Night',
         //                        'width':400,
         //                        'height':300};
-	   var options = {
-	     'legend':'left',
-	     'title':'My Big Pie Chart',
-	     'is3D':true,
-	     'width':400,
-	     'height':300
-	   }
+       var options = {
+         'legend':'left',
+         'title':'My Big Pie Chart',
+         'is3D':true,
+         'width':400,
+         'height':300
+       }
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
@@ -50,7 +50,7 @@
         }
 
         google.visualization.events.addListener(chart, 'select', selectHandler);    
-		chart.draw(data, options);
+        chart.draw(data, options);
       }
     </script>
   </head>

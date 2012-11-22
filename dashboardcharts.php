@@ -21,7 +21,6 @@
     ?>
       google.load('visualization', '1.0', {'packages':['corechart', 'geochart', 'table']});
 
-      // Set a callback to run when the Google Visualization API is loaded.
       google.setOnLoadCallback(drawCombo);
 
       function drawCombo() {
@@ -32,35 +31,35 @@
       
       function drawPieChart() {
             // Create the data table.
-          	<?php
-				$type2NumArray = array();
-				$city2NumArray = array();
-				
-			    foreach($rows as $key => $columns) {
-			        foreach($columns as $k => $cs) {
-						if (array_key_exists($key, $offerTypeArray)) {
-							$type2NumArray[$key] = (int)$type2NumArray[$key] + (int)$cs;
-						}
-						else {
-							$type2NumArray[$key] = (int)$cs;
-						}
-						
-						if (array_key_exists($k, $city2NumArray)) {
-							$city2NumArray[$k] = (int)$city2NumArray[$k] + (int)$cs;
-						}
-						else {
-							$city2NumArray[$k] = (int)$cs;
-						}
-			        }
-			    }
-			?>
+            <?php
+                $type2NumArray = array();
+                $city2NumArray = array();
+                
+                foreach($rows as $key => $columns) {
+                    foreach($columns as $k => $cs) {
+                        if (array_key_exists($key, $offerTypeArray)) {
+                            $type2NumArray[$key] = (int)$type2NumArray[$key] + (int)$cs;
+                        }
+                        else {
+                            $type2NumArray[$key] = (int)$cs;
+                        }
+                        
+                        if (array_key_exists($k, $city2NumArray)) {
+                            $city2NumArray[$k] = (int)$city2NumArray[$k] + (int)$cs;
+                        }
+                        else {
+                            $city2NumArray[$k] = (int)$cs;
+                        }
+                    }
+                }
+            ?>
             var type2NumData = google.visualization.arrayToDataTable([
                 ['Offer Type', 'Number'],
-              	<?php
-				    foreach($type2NumArray as $key => $value) {
-						print "['$key', $value],";
-				    }
-				?>
+                <?php
+                    foreach($type2NumArray as $key => $value) {
+                        print "['$key', $value],";
+                    }
+                ?>
               ]);
               
              // Set chart options
@@ -84,16 +83,16 @@
               }
              google.visualization.events.addListener(type2NumChart, 'select', selectHandler);    
              type2NumChart.draw(type2NumData, type2NumOptions);      
-			 
+             
 
-			 // city2Num pie chart
+             // city2Num pie chart
              var city2NumData = google.visualization.arrayToDataTable([
                  ['City', 'Number'],
-               	<?php
- 				    foreach($city2NumArray as $key => $value) {
- 						print "['$key', $value],";
- 				    }
- 				?>
+                <?php
+                    foreach($city2NumArray as $key => $value) {
+                        print "['$key', $value],";
+                    }
+                ?>
                ]);
               
               // Set chart options
@@ -116,8 +115,8 @@
                  }
                }
               google.visualization.events.addListener(city2NumChart, 'select', selectHandler);    
-              city2NumChart.draw(city2NumData, city2NumOptions);      			 
-	
+              city2NumChart.draw(city2NumData, city2NumOptions);                 
+    
       }
       
       function drawGeoMap() {
@@ -141,7 +140,7 @@
           var geoMap = new google.visualization.GeoChart(document.getElementById('map_div'));
           geoMap.draw(geoData, options);
       }
-	  
+      
       function drawDataTable() {       
             // data table
             var tableData = google.visualization.arrayToDataTable([
@@ -165,7 +164,7 @@
 
   <body>
     <div id="chartByType_div"></div>
-	<div id="chartByCity_div"></div>
+    <div id="chartByCity_div"></div>
     <div id="map_div"></div>
     <div id="table_div"></div>
   </body>

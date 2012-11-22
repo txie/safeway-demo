@@ -14,21 +14,21 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawTable() {
-		var tableData = google.visualization.arrayToDataTable([
-		    ['Name', 'Height', 'Smokes'],
-		    ['Tong Ning mu', 174, true],
-		    ['Huang Ang fa', 523, false],
-		    ['Teng nu', 86, true]
-		  ]);
-		
-  	  	var dataTable = new google.visualization.Table(document.getElementById('table_div'));
-  	  	dataTable.draw(tableData, null);	
+        var tableData = google.visualization.arrayToDataTable([
+            ['Name', 'Height', 'Smokes'],
+            ['Tong Ning mu', 174, true],
+            ['Huang Ang fa', 523, false],
+            ['Teng nu', 86, true]
+          ]);
+        
+        var dataTable = new google.visualization.Table(document.getElementById('table_div'));
+        dataTable.draw(tableData, null);    
       }
     </script>
   </head>
 
   <body>
     <div id="chart_div"></div>
-	<div id="table_div"></div>
+    <div id="table_div"></div>
   </body>
 </html>
