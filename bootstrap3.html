@@ -19,20 +19,106 @@
         <link href="css/docs.css" rel="stylesheet">
     </head>
     <body>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">Project name</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form pull-right">
+                            <input class="span2" type="text" placeholder="Email">
+                            <input class="span2" type="password" placeholder="Password">
+                            <button type="submit" class="btn">Sign in</button>
+                        </form>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <div class="hero-unit">
-                <h1>Hello Bootstrap</h1>
+                <h1>Hello Bootstrap!</h1>
                 <p>
                     This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
                 </p>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div class="btn-toolbar" style="margin: 10;">
+                    <div class="btn-group">
+                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Success<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Primary <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12"></div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <table class="table table-striped table-bordered">
+                        <tr><td>First Name</td><td>Last name</td><td>UserName</td></tr>
+                        <tr class="success">
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr class="info">
+                            <td>Jacob</td>
+                            <td>Thorton</td>
+                            <td>@fat</td>
+                        </tr>                   
+                    </table>
+                </div>
             </div>
             <div class="row">
                 <div class="span4">
                     <p class="lead text-info">
                         For a simple two column layout, create a .row and add the appropriate number of .span* columns. As this is a 12-column grid, each .span* spans a number of those 12 columns, and should always add up to 12 for each row (or the number of columns in the parent).
                     </p>
+                    <p>
+                        Let's imagine we have a 1000 page website and we link to a CSS file from every page on the site. 
+                    </p>
+                    <p>
+                        Now let's imagine we want to add a second CSS file to all of those pages. We could edit all 1000 HTML files and add a second CSS link or a much better way would be to import the second CSS file from within the first file. 
+                    </p>
+                    <p>
+                        We just saved ourselves many hours of work!
+                    </p>     
                 </div>
                 <div class="span4">
                     <p class="lead text-success">
@@ -57,30 +143,38 @@
                     </p>
                 </div>
             </div>
-            <div class="row show-grid">
+            <div class="row">
                 <div class="span4">
-                    <p class="lead text-info">
-                       <img src="MBP-charger.jpeg" class="img-circle"></img>
+                    <p style="padding: 10;">
+                        <img src="MBP-charger.jpeg" class="img-circle"></img>
                     </p>
                 </div>
                 <div class="span4">
-                    <i class="icon-globe"></i> <i class="icon-star"></i>
-                    <span class="label label-important">
-                        Given this example, we have .span4 and.
-                    </span>
-                </div>
-                <div class="span4">
-                    <p class="lead text-warning">
-                        Given this example, we have .span4 and .span8, making for 12 total columns and a complete row.
-                        <p>
-                            <a class="btn btn-mini btn-info">Info &raquo;</a>
-                            <a class="btn btn-success">Success &raquo;</a>
-                            <a class="btn btn-warning">Warning &raquo;</a>
-                        </p>
-                        <p>
-                            <span class="label label-sucess">success</span>
-                        </p>
+                    <p style="padding: 10;">
+                        <i class="icon-globe"></i> <i class="icon-star"></i>
+                        <span class="label label-important">
+                            Given this example, we have .span4 and.
+                        </span>
                     </p>
+                </div>
+                <div class="span4" style="background-color:#eee">
+                    <div style="padding: 10px;">
+                    <p>
+                        Let's imagine we have a 1000 page website and we link to a CSS file from every page on the site. 
+                    </p>
+                    <p>
+                        Now let's imagine we want to add a second CSS file to all of those pages. We could edit all 1000 HTML files and add a second CSS link or a much better way would be to import the second CSS file from within the first file. 
+                    </p>
+                    <p>
+                        We just saved ourselves many hours of work!
+                    </p>      
+                    <p>
+                        <a class="btn btn-mini btn-info">Info &raquo;</a>
+                        <a class="btn btn-success">Success &raquo;</a>
+                        <a class="btn btn-warning">Warning &raquo;</a>
+                        <span class="label label-sucess">success</span>
+                    </p>
+                </div>
                 </div>
             </div>
         </div>

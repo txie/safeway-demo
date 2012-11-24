@@ -53,7 +53,8 @@
 				['Category', 'Number'],
                 <?php
                     foreach($category2NumArray as $key => $value) {
-                        print "['$key', $value],";
+						$displayKey = ($key == '') ? 'Unknown' : $key;
+                        print "['$displayKey', $value],";
                     }
                 ?>
 			  ]);
