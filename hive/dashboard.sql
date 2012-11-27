@@ -1,0 +1,10 @@
+use client_logging;
+insert overwrite table less_1 select get_json_object(event, '$.url'), 0 from device_log where get_json_object(event, '$.respTime') < 500000 group by get_json_object(event, '$.url');
+INSERT OVERWRITE TABLE client_logging.less_5 select api,0 from client_logging.less_1;
+INSERT OVERWRITE TABLE client_logging.less_15 select api,0 from client_logging.less_1;
+INSERT OVERWRITE TABLE client_logging.less_to select api,0 from client_logging.less_1;
+insert overwrite table less_1 select get_json_object(event, '$.url'), count(*) from device_log where get_json_object(event, '$.respTime') < 500 group by get_json_object(event, '$.url');
+insert overwrite table less_5 select get_json_object(event, '$.url'), count(*) from device_log where get_json_object(event, '$.respTime') > 500 and get_json_object(event, '$.respTime') < 5000 group by get_json_object(event, '$.url');
+insert overwrite table less_15 select get_json_object(event, '$.url'), count(*) from device_log where get_json_object(event, '$.respTime') > 5000 and get_json_object(event, '$.respTime') < 15000 group by get_json_object(event, '$.url');
+insert overwrite table less_to select get_json_object(event, '$.url'), count(*) from device_log where get_json_object(event, '$.respTime') is null and get_json_object(event, '$.url') is not null group by get_json_object(event, '$.url');
+select l1.api, l1.count less1, l5.count less5, l15.count less15, tmout.count timedout  from less_1 l1 full outer join less_5 l5 on l1.api = l5.api full outer join less_15 l15 on l1.api = l15.api full outer join less_to tmout on l1.api = tmout.api;
