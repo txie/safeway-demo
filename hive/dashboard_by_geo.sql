@@ -1,9 +1,9 @@
-use client_logging;
+USE client_logging;
 DROP TABLE IF EXISTS dashboard_loc;
-create EXTERNAL table dashboard_loc (api string, locationId string, cnt string)
+CREATE EXTERNAL TABLE dashboard_loc (api string, locationId string, cnt string)
       STORED BY 'org.apache.hadoop.hive.cassandra.CassandraStorageHandler'
-      with SERDEPROPERTIES ("cassandra.columns.mapping"=":key,:column,:value","cassandra.host"="10.5.14.179") TBLPROPERTIES ( "cassandra.ks.name" = "client_logging" );
+      WITH SERDEPROPERTIES ("cassandra.columns.mapping"=":key,:column,:value","cassandra.host"="10.5.14.179") TBLPROPERTIES ( "cassandra.ks.name" = "client_logging" );
 
-insert overwrite table dashboard_loc
-select get_json_object(l.event, '$.pageName'), c.city,count(*) from device_log l join city_geo c on get_json_object(l.event, '$.latest_latitude') = c.latitude where  get_json_object(l.event, '$.latest_longtitude') is not null and get_json_object(l.event, '$.latest_latitude') is not null group by get_json_object(l.event, '$.pageName'), c.city ;
+INSERT OVERWRITE TABLE dashboard_loc
 
+SELECT from_unixtime(l.ts, 'yyyy-MM-dd'), get_json_object(l.event, '$.pageName'), c.city,count(*) FROM device_log l JOIN city_geo c ON get_json_object(l.event, '$.latest_latitude') = c.latitude WHERE  get_json_object(l.event, '$.latest_longtitude') IS NOT NULL AND get_json_object(l.event, '$.latest_latitude') IS NOT NULL GROUP BY get_json_object(l.event, '$.pageName'), c.city, from_unixtime(l.ts, 'yyyy-MM-dd');
