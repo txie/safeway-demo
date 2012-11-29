@@ -1,5 +1,0 @@
-111	{"url":"/ClipService/clip","respTime":356,"clientType":"iOs5.1","geo":"37.3356|-118.447","res-payload-size":4996,"err":null}	device123
-112	{"url":"/osso/identify/signin","respTime":1356,"clientType":"iOs5.1","geo":"37.3356|-118.447","res-payload-size":12,"err":null}	device123
-113	{"url":"/emmd/service/shoppingList","respTime":-1,"clientType":"iOs5.1","geo":"37.3356|-118.447","res-payload-size":4996,"err":null}	device123
-114	{"url":"/ClipService/clip","respTime":356,"clientType":"iOs5.1","geo":"37.3356|-118.447","res-payload-size":4996,"err":null}	device123
-NULL	NULL	device123
