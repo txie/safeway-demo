@@ -1,6 +1,6 @@
 USE client_logging;
 DROP TABLE IF EXISTS dashboard_loc;
-CREATE EXTERNAL TABLE dashboard_loc (api string, locationId string, cnt string)
+CREATE EXTERNAL TABLE dashboard_loc (api STRING, locationId STRING, cnt STRING)
       STORED BY 'org.apache.hadoop.hive.cassandra.CassandraStorageHandler'
       WITH SERDEPROPERTIES ("cassandra.columns.mapping"=":key,:column,:value","cassandra.host"="10.5.14.179") TBLPROPERTIES ( "cassandra.ks.name" = "client_logging" );
 
