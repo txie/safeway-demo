@@ -1,0 +1,20 @@
+what does this mean: 
+•	Security certificates must be installed in Mobile Services Vendor application key store and ePharmacy key store to enable client side HTTPS.
+
+dini 
+CRQ
+5F
+
+5105815396  fax
+
+
+please use SWY app to check now, you should see previous items plus items added in last two days
+one catch here:  current iphone APP only looking for flag "MFG" for CC offers, but all CC offers added to list should be "MF", and that's what we are using for migration,
+so you need to use SWY android app to check the list if you find some CC offer does not show up in the list
+
+
+
+now please use 5F app, you should see same item set as SWY app.
+
+
+add item one by one, after add one from 5F app, check SWY app, it should show up there.
